@@ -8,23 +8,23 @@ const data = [
     {
         id: 1,
         name: "Yogges klinik",
-        address: "Kungsgatan 1",
-        city: "Stockholm",
-        zip: "111 22",
+        address: "Lantmannagatan 59D",
+        city: "Malmö",
+        zip: "214 48",
     },
     {
         id: 2,
         name: "Dental clinic",
-        address: "Trägatan 24C",
-        city: "Stockholm",
-        zip: "111 22",
+        address: "Drakegatan 10",
+        city: "Göteborg",
+        zip: "412 50",
     },
     {
         id: 3,
         name: "Fotmassage Stockholm",
-        address: "Julvägen 22",
+        address: "Hjulsta Backar 12D",
         city: "Stockholm",
-        zip: "111 22",
+        zip: "163 65",
     },
 ];
 
@@ -52,7 +52,18 @@ const ResultCard = ({ name, address, city, zip }: ResultCardProps) => {
                         {city}, {zip}
                     </p>
                     {isExpanded && (
-                        <div className="h-64 w-full bg-red-500"></div>
+                        <div className="h-64 w-full">
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                title="map"
+                                frameBorder={0}
+                                marginHeight={0}
+                                marginWidth={0}
+                                style={{ filter: "opacity(0.7)" }}
+                                src={`https://www.google.com/maps/embed/v1/place?q=${address},+${city},+Sweden&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`}
+                            />
+                        </div>
                     )}
                 </div>
                 {isExpanded ? <ExpandLessIcon /> : <ExpandMoreIcon />}
@@ -78,3 +89,5 @@ const Results = (props: Props) => {
 };
 
 export default Results;
+
+//react router dom
